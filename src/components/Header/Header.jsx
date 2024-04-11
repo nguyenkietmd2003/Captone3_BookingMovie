@@ -20,7 +20,7 @@ const Header = () => {
       <div className="container max-w-7xl mx-auto flex justify-between items-center">
         <NavLink to={"/"} className="text-white font-medium text-2xl">
             <span className="font-bold">Movie</span>
-            <img src="https://cdn.pixabay.com/photo/2017/01/31/23/34/vintage-2028217_640.png" alt="" className="h-8 w-14"/> 
+            <img src="https://cdn.pixabay.com/photo/2017/01/31/23/34/vintage-2028217_640.png" alt="" className="h-8 w-14 inline"/> 
         </NavLink>
         <div className="text-white">{renderUserNav()}</div>
       </div>

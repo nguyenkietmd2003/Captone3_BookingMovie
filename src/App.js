@@ -9,6 +9,13 @@ import Loading from "./components/Loading/Loading";
 import SignUpPage from "./pages/signupPage/signupPage";
 import CheckUser from "./HOC/CheckUser";
 import Responsive from "./components/DemoResponsive/Responsive";
+import Notification from "./pages/ScreenPage/Notification/Notification";
+import DetailAccount from "./pages/DetailAccount/DetailAccount";
+
+// https://github.com/nguyenkietmd2003/Captone3_BookingMovie
+//ver 1
+// ver 2  : navLogin, logo movie, detail account
+// ver 3: update buy ticket
 
 function App() {
   return (
@@ -21,6 +28,7 @@ function App() {
         {/* home template  */}
         <Route path="" element={<HomeTemplate />}>
           <Route index element={<HomePage />} />
+          <Route path="detail-account" element={<DetailAccount />} />
           <Route path="detail-movie/:idMovie" element={<DetailPage />} />
         </Route>
 
@@ -33,6 +41,7 @@ function App() {
             </CheckUser>
           }
         />
+        <Route path="payment" element={<Notification />} />
         {/*  */}
 
         {/* auth template => xử lý các tác vụ khác: đăng kí, ....  */}

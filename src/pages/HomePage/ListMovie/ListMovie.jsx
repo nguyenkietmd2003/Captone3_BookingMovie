@@ -75,7 +75,7 @@ const ListMovie = () => {
       <div className="text-3xl font-bold text-center mb-10">Danh sách phim</div>
 
       {/* Danh sách phim */}
-      <div className="grid grid-cols-4 gap-9">{renderListMovie()}</div>
+      <div className="grid grid-cols-4 gap-7">{renderListMovie()}</div>
     </div>
   );
 };

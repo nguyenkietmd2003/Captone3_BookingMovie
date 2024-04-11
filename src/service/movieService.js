@@ -25,4 +25,16 @@ export const movieSer = {
     let uri = `/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`;
     return http.get(uri);
   },
+  layTatCaRapChieu: () => {
+    let uri = "/api/QuanLyRap/LayThongTinHeThongRap";
+    return http.get(uri);
+  },
+  layThongTinRapChieuheThong: (maRap) => {
+    let uri = `/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maRap}&maNhom=${MA_NHOM}`;
+    return http.get(uri);
+  },
+  getTinTuc24h: () => {
+    let uri = "https://60b9f19280400f00177b744b.mockapi.io/ArticlesDienAnh02";
+    return http.get(uri);
+  },
 };
