@@ -12,6 +12,7 @@ import Responsive from "./components/DemoResponsive/Responsive";
 import Notification from "./pages/ScreenPage/Notification/Notification";
 import DetailAccount from "./pages/DetailAccount/DetailAccount";
 
+
 // https://github.com/nguyenkietmd2003/Captone3_BookingMovie
 //ver 1
 // ver 2  : navLogin, logo movie, detail account
