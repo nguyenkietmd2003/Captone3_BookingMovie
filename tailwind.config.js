@@ -12,7 +12,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwind-scrollbar")
+  ],
 };
 
 //B1: npm instal -D tailwindcss

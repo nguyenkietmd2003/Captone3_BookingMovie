@@ -30,11 +30,19 @@ export const movieSer = {
     return http.get(uri);
   },
   layThongTinRapChieuheThong: (maRap) => {
-    let uri = `/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maRap}&maNhom=${MA_NHOM}`;
+    let uri = `/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap?maNhom=${MA_NHOM}`;
     return http.get(uri);
   },
   getTinTuc24h: () => {
     let uri = "https://60b9f19280400f00177b744b.mockapi.io/ArticlesDienAnh02";
+    return http.get(uri);
+  },
+  getReview: () => {
+    let uri = "https://60babc8f42e1d0001761ff84.mockapi.io/ArticlesReview02";
+    return http.get(uri);
+  },
+  getSale: () => {
+    let uri = "https://60babc8f42e1d0001761ff84.mockapi.io/ArticlesKhuyenMai02";
     return http.get(uri);
   },
 };
