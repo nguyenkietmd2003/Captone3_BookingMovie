@@ -45,4 +45,12 @@ export const movieSer = {
     let uri = "https://60babc8f42e1d0001761ff84.mockapi.io/ArticlesKhuyenMai02";
     return http.get(uri);
   },
+  postDatVe: (data) => {
+    let uri = "/api/QuanLyDatVe/DatVe";
+    return http.post(uri, data.payload, {
+      headers: {
+        Authorization: ${data.authorization},
+      },
+    });
+  },
 };

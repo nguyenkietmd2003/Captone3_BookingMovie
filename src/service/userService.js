@@ -8,5 +8,13 @@ export const userService = {
   postSignup:(data) => {
     let uri= '/api/QuanLyNguoiDung/DangKy'
     return http.post(uri,data)
-  }
+  },
+  postInfoAccount: (data) => {
+    let uri = "/api/QuanLyNguoiDung/ThongTinTaiKhoan";
+    return http.post(uri, undefined, {
+      headers: {
+        Authorization: data,
+      },
+    });
+  },
 };
