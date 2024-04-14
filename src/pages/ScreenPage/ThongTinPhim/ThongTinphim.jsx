@@ -2,16 +2,20 @@ import React, { useEffect, useState } from 'react'
 import {useSelector} from 'react-redux'
 import { movieSer } from '../../../service/movieService';
 import { useNavigate} from 'react-router-dom'
-
+import { useDispatch } from 'react-redux';
+import { message } from 'antd';
+import { buyTicketThunk } from '../../../redux/TicketReducer/TicketThunk';
+import { resetGhe } from '../../../redux/movieReducer/movieSlice';
 
 const ThongTinphim = ({maLichChieu}) => {
   let isDisabled = true;
     const [dataPhim,setDataPhim]= useState();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { listGheDangDat ,sum} = useSelector((state)=>
-    state.movieReducer
-  )
+    const { listGheDangDat ,sum, listGhe} = useSelector((state)=>
+    state.movieReducer )
+    const {  infoUser } = useSelector((state)=>state.userReducer)
+    const dispatch = useDispatch()
 
     const fetchDetailMovie = async () => {
         try {
@@ -28,7 +32,42 @@ const ThongTinphim = ({maLichChieu}) => {
         fetchDetailMovie()
       },[])
     
+      const acceptTicket = () => {
+        let parstIntMaLichPhim = maLichChieu * 1;
+        let initialValue = {
+          maLichChieu: parstIntMaLichPhim,
+          danhSachVe: arrayGheDangDat(),
+        };
+        let authorization = Bearer ${infoUser.accessToken};
+        
+        const handleSuccess = () => {
+          message.success("Đặt vé thành công, chuyển đến trang thanh toán");
+          navigate("/payment"); // Chuyển đến trang thanh toán sau khi đặt vé thành công
+          dispatch(resetGhe());
+        };
+      
+        dispatch(buyTicketThunk({
+          payload: initialValue,
+          authorization: authorization,
+          onSuccess: handleSuccess(),
+        }));
+      };
 
+            const arrayGheDangDat = () => {
+              let list = [];
+              listGhe?.map((ghe, i) => {
+                let index = listGheDangDat.findIndex((select) => ghe.maGhe === select.maGhe
+                );
+                if (index !== -1) {
+                  list.push({
+                    maGhe: ghe.maGhe,
+                    giaVe: ghe.giaVe,
+                  });
+                }
+              });
+              console.log(list,"list from arrray ghe dang dat truoc khi thanh toan")
+              return list;
+            };
 
 
 
@@ -103,7 +142,7 @@ const ThongTinphim = ({maLichChieu}) => {
           <button
             class="block mt-4 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-900 "
             onClick={()=>{
-              navigate("/payment")
+              acceptTicket ()
             }}
           >
             Xác Nhận

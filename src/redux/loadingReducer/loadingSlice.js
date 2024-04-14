@@ -9,10 +9,10 @@ const loadingSlice = createSlice({
   initialState,
   reducers: {
     turnOnLoading: (state, action) => {
-      // state.isLoading = true;
+      state.isLoading = true;
     },
     turnOffLoading: (state, action) => {
-      // state.isLoading = false;
+      state.isLoading = false;
     },
   },
 });
@@ -20,3 +20,4 @@ const loadingSlice = createSlice({
 export const { turnOnLoading, turnOffLoading } = loadingSlice.actions;
 
 export default loadingSlice.reducer;
+// 
